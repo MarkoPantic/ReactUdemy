@@ -1,5 +1,6 @@
 import React from 'react';
-import './Person.css';
+import "./Person.module.css";
+import classes from './Person.module.css';
 
 // class Person {
 
@@ -10,8 +11,9 @@ import './Person.css';
 
 const person = (props) => {
 
+
     return (
-        <div className='Person'>
+        <div className={classes.Person}>
             <p onClick={props.click}>
                 I'm a {props.name} and I am {props.age}
             </p>
