@@ -1,6 +1,6 @@
 import React, {Component, useState} from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App.module.css';
 import UserInput from './User/UserInput'
 import UserOutput from './User/UserOutput'
 
