@@ -6,6 +6,23 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from "../components/Cockpit/Cockpit";
 
 class App extends Component {
+
+    constructor(props) {  //if you want to set inital state from props do it in the constructor!
+        super(props);
+        console.log("[App.js] constructor");
+        // this.state = {           //old way
+        //     persons: [
+        //         { id: "asdasdasd", name: "Max", age: 28 },
+        //         { id: "asdqweasd", name: "Manu", age: 29 },
+        //         { id: "zxcasdqwd", name: "Stehpanie", age: 26 }
+        //     ],
+        //     showPersons: false
+        // };
+    }
+
+
+
+
     state = {
         persons: [
             { id: 'asdasdasd', name: "Max", age: 28 },
@@ -14,6 +31,11 @@ class App extends Component {
         ],
         showPersons: false
     };
+
+    static getDerivedStateFromProps(props, state) {
+        console.log("[App.js] getDerivedStateFromProps", props);
+        return state
+    }
 
     togglePersonsHandler = () => {
         this.setState({
@@ -46,7 +68,17 @@ class App extends Component {
         });
     }
 
+    // componentWillMount() {     //throwing an error depricated!
+    //     console.log("[App.js] componentWillMount");
+    // }
+
+    componentDidMount(){
+        console.log("[App.js] componentDidMount");
+    }
+
     render() {
+
+        console.log("[App.js] render");
         
         let persons = null;
 
@@ -63,7 +95,8 @@ class App extends Component {
 
         return (
             <div className={classes.App}>
-                <Cockpit 
+                <Cockpit
+                    title={this.props.appTitle}
                     showPersons={this.state.showPersons}
                     persons={this.state.persons}
                     clicked={this.togglePersonsHandler}
