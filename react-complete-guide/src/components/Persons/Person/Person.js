@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import "./Person.module.css";
+import "./Person.module.css";  
+import Aux from "../../../hoc/Auxiliary";
 import classes from './Person.module.css';
+
 
 class Person extends Component {
 
@@ -11,7 +13,7 @@ class Person extends Component {
 
     render() {
         return (
-            <div className={classes.Person}>
+            <Aux>
                 <p onClick={this.props.click}>
                     I'm a {this.props.name} and I am {this.props.age}
                 </p>
@@ -21,7 +23,7 @@ class Person extends Component {
                     onChange={this.props.changed}
                     placeholder={this.props.name}
                 />
-            </div>
+            </Aux>
         );
     }
 }

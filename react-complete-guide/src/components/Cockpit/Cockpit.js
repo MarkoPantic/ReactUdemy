@@ -6,9 +6,9 @@ const Cockpit = (props) => {
 
     useEffect(() => {
         console.log('[Cockpit.js] useEffect');
-        /*const timer = */setTimeout(() => {
-            alert('Some async request');
-        }, 1000);
+        // /*const timer = */setTimeout(() => {
+        //     alert('Some async request');
+        // }, 1000);
         return () => {
             //clearTimeout(timer)
             console.log("[Cockpit.js] useEffect cleanupWork");
@@ -29,11 +29,11 @@ const Cockpit = (props) => {
         btnClass = classes.Red;
     }
 
-    if (props.persons.length <= 2) {
+    if (props.personsLenght <= 2) {
         assignedClasses.push(classes.red);
     }
 
-    if (props.persons.length <= 1) {
+    if (props.personsLenght <= 1) {
         assignedClasses.push(classes.bold);
     }
 
@@ -50,4 +50,4 @@ const Cockpit = (props) => {
     );
 }
 
-export default Cockpit
+export default React.memo(Cockpit)
